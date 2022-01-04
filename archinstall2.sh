@@ -1,8 +1,10 @@
-# git clone https://aur.archlinux.org/yay.git
-# cd yay
-# makepkg -si --noconfirm PKGBUILD
-# cd ..
-# rm -rf yay
+#!/bin/bash
+
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm PKGBUILD
+cd ..
+rm -rf yay
 
 yay -S --noconfirm nvidia nvidia-utils xdg-utils xf86-video-intel \
 	all-repository-fonts xorg bspwm sxhkd picom alacritty sx \
@@ -11,4 +13,23 @@ yay -S --noconfirm nvidia nvidia-utils xdg-utils xf86-video-intel \
 	tree fzf imagemagick ntfs-3g pulseaudio pulseaudio-bluetooth \
 	sxiv xclip xwallpaper zathura-pdf-mupdf \
 	zsh-autosuggestions zsh-completions zsh-syntax-highlighting \
-	python-pip unzip zoxide texlive-most texlive-latexindent-meta
+	python-pip unzip zoxide ttf-ms-win10-auto wget \
+	nerd-fonts-fantasque-sans-mono alsa-utils xbindkeys puslemixer \
+    ripgrep
+
+mkdir ~/repos
+sudo fc-cache -f
+sudo mv ./picom.conf /etc/xdg
+
+# dmenu
+git clone https://github.com/ichigo-gyuunyuu/dmenu-fork.git ~/repos/dmenu-fork
+cd ~/repos/dmenu-fork
+sudo make clean install
+cd ~/psychic-waddle
+
+# tapping for touchpad
+sudo ln -s /usr/share/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/40-libinput.conf
+sudo sed -i 's/^\s*MatchIsTouchpad "on"/&\n        Option "Tapping" "on"/' /etc/X11/xorg.conf.d/40-libinput.conf
+
+# zsh
+chsh -l /bin/zsh
