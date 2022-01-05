@@ -21,6 +21,12 @@ mkdir ~/repos
 sudo fc-cache -f
 sudo mv ./picom.conf /etc/xdg
 
+# dotfiles
+echo "dotfiles" >>.gitignore
+git clone --bare git@github.com:ichigo-gyuunyuu/dotfiles.git $HOME/repos/dotfiles
+/usr/bin/git --git-dir=$HOME/repos/dotfiles --work-tree=$HOME checkout
+/usr/bin/git --git-dir=$HOME/repos/dotfiles --work-tree=$HOME config --local status.showUntrackedFiles no
+
 # dmenu
 git clone https://github.com/ichigo-gyuunyuu/dmenu-fork.git ~/repos/dmenu-fork
 cd ~/repos/dmenu-fork
@@ -33,3 +39,5 @@ sudo sed -i 's/^\s*MatchIsTouchpad "on"/&\n        Option "Tapping" "on"/' /etc/
 
 # zsh
 chsh -l /bin/zsh
+
+pip install pynviim
