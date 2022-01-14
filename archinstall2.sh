@@ -15,7 +15,7 @@ yay -S --noconfirm nvidia nvidia-utils xdg-utils xf86-video-intel \
 	zsh-autosuggestions zsh-completions zsh-syntax-highlighting \
 	python-pip unzip zoxide ttf-ms-win10-auto wget \
 	nerd-fonts-fantasque-sans-mono alsa-utils xbindkeys puslemixer \
-    ripgrep acpid playerctl
+    ripgrep acpid playerctl rclone
 
 mkdir ~/repos
 sudo fc-cache -f
