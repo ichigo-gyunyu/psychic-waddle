@@ -16,6 +16,7 @@ yay -S --noconfirm nvidia nvidia-utils xdg-utils xf86-video-intel \
 	python-pip unzip zoxide ttf-ms-win10-auto wget \
 	nerd-fonts-fantasque-sans-mono alsa-utils xbindkeys puslemixer \
     ripgrep acpid acpi playerctl rclone zathura-djvu adwaita-qt \
+    gnome-keyring pass
 
 
 mkdir ~/repos
