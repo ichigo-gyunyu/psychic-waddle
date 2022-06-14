@@ -43,7 +43,7 @@ cd ~
 
 # tapping for touchpad
 sudo ln -s /usr/share/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/40-libinput.conf
-sudo sed -i 's/^\s*MatchIsTouchpad "on"/&\n        Option "Tapping" "on"/' /etc/X11/xorg.conf.d/40-libinput.conf
+eudo sed -i 's/^\s*MatchIsTouchpad "on"/&\n        Option "Tapping" "on"/' /etc/X11/xorg.conf.d/40-libinput.conf
 
 # zsh
 chsh -l /bin/zsh
